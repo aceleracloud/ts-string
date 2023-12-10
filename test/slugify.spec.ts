@@ -39,6 +39,10 @@ describe('slugify', () => {
     test('should remove hyphens from the beginning and end of the string', () => {
       expect(slugify('-hello-world-')).toBe('hello-world')
     })
+
+    test('should remove continuous hyphens from the beginning and end of the string', () => {
+      expect(slugify('----hello-world-')).toBe('hello-world')
+    })
   })
 
   describe('extreme cases', () => {

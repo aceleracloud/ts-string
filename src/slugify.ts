@@ -25,8 +25,13 @@ export const slugify = (string: string): string => {
   // Remove extra hyphens (multiple consecutive hyphens)
   slug = slug.replace(/-+/g, '-')
 
-  // Remove hyphens from the beginning and end, if any
-  slug = slug.replace(/^-+|-+$/g, '')
+  // Remove hyphens from the beginning and end
+  while (slug.startsWith('-')) {
+    slug = slug.substring(1)
+  }
+  while (slug.endsWith('-')) {
+    slug = slug.substring(0, slug.length - 1)
+  }
 
   return slug
 }
